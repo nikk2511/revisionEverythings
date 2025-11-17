@@ -47,15 +47,17 @@ const diameter = function (radius) {
     return 2 * radius;
 };
 
-const calculate = function (radius, logic) {
+Array.prototype.calculate = function (logic) {
     const output = [];
-    for (let i = 0; i<radius.length; i++) {
-        output.push(logic(radius[i]));
+    for (let i = 0; i<this.length; i++) {
+        output.push(logic(this[i]));
     }
     return output;
 }
 
-console.log(calculate(radius, area));
-console.log(calculate(radius, cicumference));
-console.log(calculate(radius, diameter));
+console.log(radius.map(area));
+
+console.log(radius.calculate(area));
+// console.log(calculate(radius, cicumference));
+// console.log(calculate(radius, diameter));
 
